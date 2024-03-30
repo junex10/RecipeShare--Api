@@ -18,24 +18,6 @@ export class Person extends Model {
   @Column
   user_id: number;
 
-  @Column
-  medical_history: number;
-
-  @Column
-  age: number;
-
-  @Column
-  birthdate: Date;
-
-  @Column
-  document: string;
-
-  @Column
-  phone: string;
-
-  @Column
-  address: string;
-
   @CreatedAt
   @Column
   created_at: Date;

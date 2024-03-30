@@ -34,22 +34,7 @@ export class User extends Model {
   token: string;
 
   @Column
-  facebook: number;
-
-  @Column
-  google: number;
-
-  @Column
-  google_id: string;
-
-  @Column
-  facebook_id: string;
-
-  @Column
   photo: string;
-
-  @Column
-  logged_in: number;
 
   @Column
   verified: number;

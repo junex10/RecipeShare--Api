@@ -10,6 +10,8 @@ import { Permissions } from './permissions';
 import { Person } from './person';
 import { Petition } from './petition';
 import { Process } from './process';
+import { Recipes } from './recipes';
+import { IngredientsRecipes } from './ingredients_recipe';
 
 export {
 	Level,
@@ -23,5 +25,7 @@ export {
 	Permissions,
 	Person,
 	Petition,
-	Process
+	Process,
+	Recipes,
+	IngredientsRecipes
 }

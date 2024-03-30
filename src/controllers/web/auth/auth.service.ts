@@ -30,7 +30,6 @@ export class AuthService {
 				verified: Constants.USER.USER_VERIFIED.VERIFIED
 			}
 		});
-		user.logged_in = Constants.USER.LOGGED_IN.IN;
 		user.save();
 		return user;
 	}

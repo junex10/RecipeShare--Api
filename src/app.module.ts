@@ -32,7 +32,9 @@ import {
   Actions,
   CompanyInformation,
   Petition,
-  Process
+  Process,
+  Recipes,
+  IngredientsRecipes
 } from './models';
 
 @Module({
@@ -52,7 +54,9 @@ import {
         Actions,
         CompanyInformation,
         Petition,
-        Process
+        Process,
+        Recipes,
+        IngredientsRecipes
       ]
     }),
     MailerModule.forRoot(MAIL_CONFIG),

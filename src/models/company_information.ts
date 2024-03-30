@@ -21,12 +21,6 @@ export class CompanyInformation extends Model {
     @Column
     email: string;
 
-    @Column
-    phone: string;
-
-    @Column
-    address: string;
-
     @CreatedAt
     @Column
     created_at: Date;
