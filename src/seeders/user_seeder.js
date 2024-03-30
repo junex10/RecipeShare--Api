@@ -14,7 +14,6 @@ module.exports = {
         level_id: Constants.USERS.LEVELS.ADMIN,
         verified: Constants.SEEDERS.USER_VERIFIED.VERIFIED,
         status: Constants.USERS.STATUS.ACTIVATED,
-        logged_in: 0
       },
       {
         id: 2,
@@ -22,8 +21,7 @@ module.exports = {
         password: bcrypt.hashSync('123456', salt),
         level_id: Constants.USERS.LEVELS.USER,
         verified: Constants.SEEDERS.USER_VERIFIED.VERIFIED,
-        status: Constants.USERS.STATUS.ACTIVATED,
-        logged_in: 0
+        status: Constants.USERS.STATUS.ACTIVATED
       }
     ];
     return queryInterface.bulkInsert('users',items);
