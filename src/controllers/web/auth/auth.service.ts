@@ -132,13 +132,12 @@ export class AuthService {
 			name: request.name ?? null,
 			lastname: request.lastname ?? null,
 			phone: request.phone ?? null,
-			medical_history: Constants.USER.PERSON.MEDICAL_HISTORY.DISABLED,
 			user_id: user.id
 		});
 		try {
 			await this.mailerService.sendMail({
 				to: user.email,
-				subject: 'Confirmación de cuenta | ' + process.env.MAIL_FROM_NAME,
+				subject: 'Confirm account | ' + process.env.MAIL_FROM_NAME,
 				template: './register',
 				context: {
 					user: person.name,
