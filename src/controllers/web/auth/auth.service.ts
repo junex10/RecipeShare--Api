@@ -122,9 +122,11 @@ export class AuthService {
 		const user = await this.userModel.create({
 			email: request.email,
 			password: Hash.makeSync(request.password),
-			level_id: request.level_id || Constants.LEVELS.PATIENT,
+			level_id: request.level_id || Constants.LEVELS.USER,
 			photo: file ? ('users/' + file.filename) : null,
 			token: await this.generateURL(),
+			verified: Constants.USER.USER_VERIFIED.NO_VERIFIED,
+			status: Constants.USER.USER_VERIFIED.NO_VERIFIED
 		});
 		const person = await this.personModel.create({
 			name: request.name ?? null,

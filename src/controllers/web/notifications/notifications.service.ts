@@ -27,7 +27,7 @@ export class NotificationsService {
                         level_id: Constants.LEVELS.ADMIN
                     },
                     {
-                        level_id: Constants.LEVELS.PATIENT
+                        level_id: Constants.LEVELS.USER
                     }
                 ]
             }
