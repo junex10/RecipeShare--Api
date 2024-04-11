@@ -18,8 +18,8 @@ export class RegisterParams {
     lastname?: string;
 
     @ApiProperty({ required: false })
-    @IsNotEmpty({ message: 'El campo email es requerido' })
-    @IsEmail({},{ message: 'El correo electrónico no es válido' })
+    @IsNotEmpty({ message: 'Email field is required' })
+    @IsEmail({},{ message: 'Invalid Email' })
     @Transform(({ value }: TransformFnParams) => value.toLowerCase().trim())
     email: string;
     

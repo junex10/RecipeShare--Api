@@ -7,15 +7,15 @@ export class UpdateUserDTO {
     id: number;
 
     @ApiProperty()
-    @IsNotEmpty({ message: 'El campo nombre es requerido' })
+    @IsNotEmpty({ message: 'Name field is required' })
     name: string;
 
     @ApiProperty()
     lastname?: string;
 
     @ApiProperty()
-    @IsNotEmpty({ message: 'El campo email es requerido' })
-    @IsEmail({}, { message: 'El correo electrónico no es válido' })
+    @IsNotEmpty({ message: 'Email field is required' })
+    @IsEmail({}, { message: 'Invalid Email' })
     @Transform(({ value }: TransformFnParams) => value.toLowerCase().trim())
     email: string;
 

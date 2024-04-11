@@ -72,7 +72,7 @@ export class AuthController {
 			}
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -92,7 +92,7 @@ export class AuthController {
 
 			if (_user) {
 				return response.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
-					error: 'El correo electrónico ya se encuentra registrado'
+					error: 'The email is already registered'
 				});
 			}
 
@@ -103,7 +103,7 @@ export class AuthController {
 			});
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -114,7 +114,7 @@ export class AuthController {
 
 			if (!user || user.level_id == Constants.LEVELS.ADMIN) {
 				return response.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
-					error: 'El correo electrónico no se encuentra registrado'
+					error: 'The email is already registered'
 				});
 			}
 
@@ -125,7 +125,7 @@ export class AuthController {
 			});
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -145,7 +145,7 @@ export class AuthController {
 			});
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -181,7 +181,7 @@ export class AuthController {
 			});
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -193,7 +193,7 @@ export class AuthController {
 			});
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -213,7 +213,7 @@ export class AuthController {
 			}
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 
@@ -223,16 +223,16 @@ export class AuthController {
 			const verified: boolean = await this.authService.checkPermissions(request.token, request.code);
 			if (!verified) {
 				return response.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
-					error: 'No se pudo ingresar a la pantalla por falta de permisos'
+					error: 'You do not have access to this page'
 				});
 			} else {
 				return response.status(HttpStatus.OK).json({
-					message: 'Acceso permitido'
+					message: 'Access allowed'
 				});
 			}
 		}
 		catch (e) {
-			throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+			throw new UnprocessableEntityException('Connection error, please try again', e.message);
 		}
 	}
 }

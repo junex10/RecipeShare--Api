@@ -23,7 +23,7 @@ export class NotificationsController {
             });
         }
         catch(e) {
-            throw new UnprocessableEntityException('Ha ocurrido un error de conexión, intente nuevamente', e.message);
+            throw new UnprocessableEntityException('Connection error, please try again', e.message);
         }
     }
 }
