@@ -38,7 +38,7 @@ export class AuthController {
 	async login(@Body() request: LoginParams, @Res() response: Response) {
 		try {
 			const user = await this.authService.findUserVerified(request.email);
-			const errorMessage = 'Las credenciales ingresadas son incorrectas y/o la cuenta no está verificada, intente nuevamente';
+			const errorMessage = 'The credentials entered are incorrect and/or the account is not verified, please try again';
 			if (!user) {
 				return response.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
 					error: errorMessage
