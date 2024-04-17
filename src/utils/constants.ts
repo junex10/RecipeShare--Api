@@ -39,6 +39,6 @@ export default {
 		NO_MAIN: 0
 	},
 	MODULES: {
-		PROFILE: '/profile'
+		PROFILE: '/dashboard/profile'
 	}
 }

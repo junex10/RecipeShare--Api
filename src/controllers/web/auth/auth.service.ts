@@ -176,10 +176,10 @@ export class AuthService {
 
 	checkPermissions = async (permissions: string, code: string): Promise<boolean> => {
 		const readPermissions = JWTAuth.readToken(permissions);
-		/*const auth = await readPermissions?.permissions.filter((value: any) => code === value.actions.code);
+		const auth = await readPermissions?.permissions.filter((value: any) => code === value.actions.code);
 		if (auth !== null) {
-			if (auth.length > 0) return true; -> Fix this
-		}*/
+			if (auth.length > 0) return true;
+		}
 		return false;
 	}
 
