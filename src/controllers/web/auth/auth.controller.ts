@@ -44,7 +44,6 @@ export class AuthController {
 					error: errorMessage
 				});
 			}
-
 			if (await Hash.check(request.password, user.password)) {
 
 				const permissions = user.level.permissions;
