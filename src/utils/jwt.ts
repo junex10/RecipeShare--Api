@@ -11,7 +11,7 @@ class JWTAuth {
         return { token };
     }
 
-    readToken = (token: any) => {
+    readToken: any = (token: any) => {
 
         const key = process.env.API_KEY;
         const data = jwt.verify(token, key);

@@ -7,9 +7,11 @@ import {
 } from './profile.entity';
 import { Response } from 'express';
 import { ApiTags } from '@nestjs/swagger';
+import { ProfileInterceptor } from 'src/interceptors';
 
 @ApiTags('Profile')
 @Controller('api/profile')
+@UseInterceptors(ProfileInterceptor)
 export class ProfileController {
     constructor(
         private readonly profileService: ProfileService
@@ -43,7 +45,7 @@ export class ProfileController {
 				});
         }
         catch(e) {
-            throw new UnprocessableEntityException('No se pudo actualizar el perfil', e.message);
+            throw new UnprocessableEntityException('Could not updated the profile', e.message);
         }
     }
 }
