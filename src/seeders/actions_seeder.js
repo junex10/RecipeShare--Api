@@ -14,6 +14,13 @@ module.exports = {
         module_id: Constants.SEEDERS.MODULES.PROFILE,
         name: 'Profile',
         code: '/profile'
+      },
+      {
+        id: 2,
+        main: Constants.SEEDERS.ACTIONS.MAIN,
+        module_id: Constants.SEEDERS.MODULES.RECIPES,
+        name: 'Recipes',
+        code: '/recipes'
       }
     ];
     return queryInterface.bulkInsert('actions',items);

@@ -14,6 +14,13 @@ module.exports = {
         icon: 'profile',
         code: 'profile',
         status: Constants.SEEDERS.MODULES_STATUS.AVAILABLE
+      },
+      {
+        id: 2,
+        name: 'Recipes',
+        icon: 'recipes',
+        code: 'recipes',
+        status: Constants.SEEDERS.MODULES_STATUS.AVAILABLE
       }
     ];
     return queryInterface.bulkInsert('modules',items);

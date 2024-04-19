@@ -36,7 +36,8 @@ module.exports = {
       DISABLED: 0
     },
     MODULES: {
-      PROFILE: 1
+      PROFILE: 1,
+      RECIPES: 2
     },
     ACTIONS: {
       MAIN: 1,

@@ -14,14 +14,24 @@ module.exports = {
         id: 1,
         action_id: 1,
         level_id: Constants.USERS.LEVELS.ADMIN
+      },
+      {
+        id: 2,
+        action_id: 2,
+        level_id: Constants.USERS.LEVELS.ADMIN
       }
     ];
     queryInterface.bulkInsert('permissions',items);
 
     items = [
         {
-          id: 2,
+          id: 3,
           action_id: 1,
+          level_id: Constants.USERS.LEVELS.USER
+        },
+        {
+          id: 4,
+          action_id: 2,
           level_id: Constants.USERS.LEVELS.USER
         }
       ];
