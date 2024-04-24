@@ -23,6 +23,9 @@ export class Recipes extends Model {
   name: string;
 
   @Column
+  description: string;
+
+  @Column
   difficulty: number;
 
   @Column

@@ -45,5 +45,10 @@ export default {
 		MINUTES: 0,
 		HOURS: 1,
 		DAYS: 2
+	},
+	DIFFICULTY: {
+		EASY: 0,
+		MEDIUM: 1,
+		HARD: 2
 	}
 }
