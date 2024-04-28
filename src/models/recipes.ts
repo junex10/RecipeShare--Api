@@ -20,6 +20,9 @@ export class Recipes extends Model {
   cooking_time: string;
 
   @Column
+  photo: string;
+
+  @Column
   name: string;
 
   @Column

@@ -22,6 +22,7 @@ export class RecipeService {
         const newRecipe = await this.recipeModel.create({
             user_id: request.user_id,
             name: request.name,
+            photo: file ? ('recipes/' + file.filename) : null,
             description: request.description,
             cooking_time_type: request.cooking_time_type || Constants.COOKING_TYPE_TIME.MINUTES,
             cooking_time: request.cooking_time || 0,
