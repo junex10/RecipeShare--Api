@@ -12,6 +12,8 @@ export class RecipeInterceptor implements NestInterceptor {
       if (main.length === 0) {
         throw new ForbiddenException('Access denied, there is not enough permissions to this action');
       }
+    } else {
+      throw new ForbiddenException('Access denied, there is not enough permissions to this action');
     }
     return next.handle();
   }

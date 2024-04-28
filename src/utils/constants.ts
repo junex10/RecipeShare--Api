@@ -40,7 +40,7 @@ export default {
 	},
 	MODULES: {
 		PROFILE: '/dashboard/profile',
-		RECIPES: '/dashboard/recipes'
+		RECIPES: '/recipes'
 	},
 	COOKING_TYPE_TIME: {
 		MINUTES: 0,
