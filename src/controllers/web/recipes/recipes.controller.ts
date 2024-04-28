@@ -3,7 +3,7 @@ import { RecipeService } from './recipes.service';
 import { Constants, UploadFile, JWTAuth } from 'src/utils';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { 
-    UpdateUserDTO
+    NewRecipeDTO
 } from './recipes.entity';
 import { Response } from 'express';
 import { ApiTags } from '@nestjs/swagger';
@@ -23,9 +23,13 @@ export class RecipeController {
     @UseInterceptors(FileInterceptor('photo',
       UploadFile('recipes')
     ))
-    async update(@Body() request: UpdateUserDTO, @Res() response: Response, @UploadedFile() file: Express.Multer.File) {
+    async new(@Body() request: NewRecipeDTO, @Res() response: Response, @UploadedFile() file: Express.Multer.File) {
         try {
+            const newRecipe = await this.recipeService.new(request, file);
             
+            return response.status(HttpStatus.OK).json({
+				recipe: newRecipe
+			});
         }
         catch(e) {
             throw new UnprocessableEntityException('Could not add the recipe', e.message);

@@ -83,7 +83,7 @@ export class AuthController {
 		try {
 			if (request.password != request.password_confirmation) {
 				return response.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
-					error: 'Las contraseñas no coinciden'
+					error: 'The password are not the same each other'
 				});
 			}
 
