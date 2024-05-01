@@ -3,8 +3,10 @@ import { InjectModel } from "@nestjs/sequelize";
 import { Level, Person, Recipes, User } from "src/models";
 import { Constants, Hash, Globals } from 'src/utils';
 import {
+    GetRecipeDTO,
     NewRecipeDTO,
-    RemoveRecipeDTO
+    RemoveRecipeDTO,
+    UpdateRecipeDTO
 } from './recipes.entity';
 import * as fs from 'fs';
 import * as moment from 'moment';
@@ -57,5 +59,45 @@ export class RecipeService {
 
 
         return true;
+    }
+
+    getRecipes = async (request: GetRecipeDTO) => {
+        const recipes = await this.recipeModel.findAll({
+            where: {
+                user_id: request.user_id
+            }
+        });
+
+        return recipes;
+    }
+
+    update = async (request: UpdateRecipeDTO, file: Express.Multer.File) => {
+        const recipe = await this.recipeModel.findOne({ where: { id: request.id } });
+        if (file !== undefined && recipe?.photo !== null) {
+            const PATH = `./public/storage/${recipe?.photo}`;
+            if (fs.existsSync(PATH)) fs.unlinkSync(PATH);
+        }
+
+        this.recipeModel.update(
+            {
+                name: request.name,
+                photo: file ? ('recipes/' + file.filename) : null,
+                description: request.description,
+                cooking_time_type: request.cooking_time_type || Constants.COOKING_TYPE_TIME.MINUTES,
+                cooking_time: request.cooking_time || 0,
+                difficulty: request.difficulty_field || Constants.DIFFICULTY.EASY,
+                prep_time_type: request.preparation_time_type || Constants.COOKING_TYPE_TIME.MINUTES,
+                prep_time: request.preparation_time || 0,
+                meal_people: 1 // -> Prepared for one person per meal
+            },
+            {
+                where: {
+                    id: request.id
+                }
+            }
+        );
+
+        const recipeChanged = await this.recipeModel.findOne({ where: { id: request.id } })
+        return recipeChanged
     }
 }

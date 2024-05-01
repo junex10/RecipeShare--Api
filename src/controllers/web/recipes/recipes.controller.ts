@@ -3,8 +3,10 @@ import { RecipeService } from './recipes.service';
 import { Constants, UploadFile, JWTAuth } from 'src/utils';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { 
+    GetRecipeDTO,
     NewRecipeDTO,
-    RemoveRecipeDTO
+    RemoveRecipeDTO,
+    UpdateRecipeDTO
 } from './recipes.entity';
 import { Response } from 'express';
 import { ApiTags } from '@nestjs/swagger';
@@ -41,16 +43,16 @@ export class RecipeController {
     @UseInterceptors(FileInterceptor('photo',
       UploadFile('recipes')
     ))
-    async update(@Body() request: NewRecipeDTO, @Res() response: Response, @UploadedFile() file: Express.Multer.File) {
+    async update(@Body() request: UpdateRecipeDTO, @Res() response: Response, @UploadedFile() file: Express.Multer.File) {
         try {
-            const newRecipe = await this.recipeService.new(request, file);
+            const recipe = await this.recipeService.update(request, file);
             
             return response.status(HttpStatus.OK).json({
-				recipe: newRecipe
+				recipe
 			});
         }
         catch(e) {
-            throw new UnprocessableEntityException('Could not add the recipe', e.message);
+            throw new UnprocessableEntityException('Could not update the recipe', e.message);
         }
     }
 
@@ -75,14 +77,14 @@ export class RecipeController {
         }
     }
 
-    @Get()
-    async get(@Body() request: NewRecipeDTO, @Res() response: Response) {
+    @Post()
+    async get(@Body() request: GetRecipeDTO, @Res() response: Response) {
         try {
-            //const newRecipe = await this.recipeService.new(request, file);
+            const recipes = await this.recipeService.getRecipes(request);
             
-            /*return response.status(HttpStatus.OK).json({
-				recipe: newRecipe
-			});*/
+            return response.status(HttpStatus.OK).json({
+				recipes
+			});
         }
         catch(e) {
             throw new UnprocessableEntityException('Could not add the recipe', e.message);
