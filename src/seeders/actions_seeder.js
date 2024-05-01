@@ -21,27 +21,6 @@ module.exports = {
         module_id: Constants.SEEDERS.MODULES.RECIPES,
         name: 'Recipes',
         code: '/recipes'
-      },
-      {
-        id: 3,
-        main: Constants.SEEDERS.ACTIONS.NO_MAIN,
-        module_id: Constants.SEEDERS.MODULES.RECIPES,
-        name: 'New Recipes',
-        code: '/new-recipes'
-      },
-      {
-        id: 4,
-        main: Constants.SEEDERS.ACTIONS.NO_MAIN,
-        module_id: Constants.SEEDERS.MODULES.RECIPES,
-        name: 'Update Recipes',
-        code: '/update-recipes'
-      },
-      {
-        id: 5,
-        main: Constants.SEEDERS.ACTIONS.NO_MAIN,
-        module_id: Constants.SEEDERS.MODULES.RECIPES,
-        name: 'Delete Recipes',
-        code: '/remove-recipes'
       }
     ];
     return queryInterface.bulkInsert('actions',items);

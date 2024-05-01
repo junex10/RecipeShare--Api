@@ -3,7 +3,8 @@ import { InjectModel } from "@nestjs/sequelize";
 import { Level, Person, Recipes, User } from "src/models";
 import { Constants, Hash, Globals } from 'src/utils';
 import {
-    NewRecipeDTO
+    NewRecipeDTO,
+    RemoveRecipeDTO
 } from './recipes.entity';
 import * as fs from 'fs';
 import * as moment from 'moment';
@@ -33,5 +34,28 @@ export class RecipeService {
         });
 
         return newRecipe;
+    }
+
+    remove = async (request: RemoveRecipeDTO) => {
+
+        const recipe = await this.recipeModel.findOne({
+            where: {
+                id: request.id
+            }
+        });
+
+        if (recipe?.photo) {
+            const PATH = `./public/storage/${recipe.photo}`;
+            if (fs.existsSync(PATH)) fs.unlinkSync(PATH);
+        }
+
+        this.recipeModel.destroy({
+            where: {
+                id: request.id
+            }
+        });
+
+
+        return true;
     }
 }

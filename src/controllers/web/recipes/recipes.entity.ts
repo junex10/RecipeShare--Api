@@ -27,3 +27,8 @@ export class NewRecipeDTO {
     @ApiProperty()
     difficulty_field: number;
 }
+
+export class RemoveRecipeDTO {
+    @ApiProperty()
+    id: number;
+}
