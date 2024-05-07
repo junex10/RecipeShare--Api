@@ -17,7 +17,8 @@ import {
   PetitionModule,
   NotificationsModule,
   ProfileModule,
-  RecipeModule
+  RecipeModule,
+  HomeModule
 } from 'src/controllers';
 
 // Models
@@ -78,7 +79,8 @@ import {
     NotificationsModule,
     ProfileModule,
     RecipeModule,
-    
+    HomeModule,
+
     ScheduleModule.forRoot()
   ],
   providers: [

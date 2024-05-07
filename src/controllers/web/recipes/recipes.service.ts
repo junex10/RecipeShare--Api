@@ -10,6 +10,7 @@ import {
 } from './recipes.entity';
 import * as fs from 'fs';
 import * as moment from 'moment';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class RecipeService {
@@ -62,12 +63,44 @@ export class RecipeService {
     }
 
     getRecipes = async (request: GetRecipeDTO) => {
-        const recipes = await this.recipeModel.findAll({
-            where: {
-                user_id: request.user_id
-            }
-        });
 
+        let recipes = [];
+
+        if (!request.search) {
+            recipes = await this.recipeModel.findAll({
+                where: {
+                    user_id: request.user_id
+                }
+            });
+    
+        } else {
+            recipes = await this.recipeModel.findAll({
+                where: {
+                    [Op.or]: [
+                        {
+                            name: {
+                                [Op.like]: `%${request.search}%`
+                            }
+                        },
+                        {
+                            description: {
+                                [Op.like]: `%${request.search}%`
+                            }
+                        },
+                        {
+                            cooking_time: {
+                                [Op.like]: `%${request.search}%`
+                            }
+                        },
+                        {
+                            meal_people: {
+                                [Op.like]: `%${request.search}%`
+                            }
+                        }
+                    ]
+                }
+            });
+        }
         return recipes;
     }
 

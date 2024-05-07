@@ -66,4 +66,7 @@ export class RemoveRecipeDTO {
 export class GetRecipeDTO{
     @ApiProperty()
     user_id: number;
+
+    @ApiProperty()
+    search?: string;
 }
