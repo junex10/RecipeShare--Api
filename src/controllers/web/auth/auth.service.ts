@@ -106,7 +106,7 @@ export class AuthService {
 		try {
 			await this.mailerService.sendMail({
 				to: user.email,
-				subject: 'Recuperación de Contraseña | ' + process.env.MAIL_FROM_NAME,
+				subject: 'Password Recover | ' + process.env.MAIL_FROM_NAME,
 				template: './reset',
 				context: {
 					code
