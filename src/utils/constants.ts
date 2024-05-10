@@ -1,7 +1,7 @@
 enum COMPANY_INFORMATION {
-	NAME = 'ClinicaSBV',
+	NAME = 'Recipe Sharer',
 	ID = 1,
-	DESCRIPTION = 'Sistema para consultoria y administración de la clinica'
+	DESCRIPTION = 'Recipe Web to share meals'
 }
 enum LEVELS {
 	ADMIN = 1,
@@ -20,10 +20,6 @@ export default {
 		USER_VERIFIED: {
 			VERIFIED: 1,
 			NO_VERIFIED: 0
-		},
-		LOGGED_IN: {
-			IN: 1,
-			OUT: 0
 		}
 	},
 	NOTIFICATIONS: {

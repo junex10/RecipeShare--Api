@@ -3,9 +3,7 @@ import { Socket, Server } from 'socket.io';
 import SocketEvents from './socket.events';
 import { SocketService } from './socket.service';
 import fetch from 'cross-fetch';
-import {
-  
-} from './socket.entity';
+
 
 const HEADERS = {
    'Accept': 'application/json',

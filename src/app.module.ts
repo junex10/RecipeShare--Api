@@ -14,7 +14,6 @@ import { ScheduleModule } from '@nestjs/schedule';
 
 import {
   AuthModule,
-  PetitionModule,
   NotificationsModule,
   ProfileModule,
   RecipeModule,
@@ -36,7 +35,6 @@ import {
   Petition,
   Process,
   Recipes,
-  IngredientsRecipes
 } from './models';
 
 @Module({
@@ -58,7 +56,6 @@ import {
         Petition,
         Process,
         Recipes,
-        IngredientsRecipes
       ]
     }),
     MailerModule.forRoot(MAIL_CONFIG),
@@ -75,7 +72,6 @@ import {
     }),
     AuthModule,
     SocketModule,
-    PetitionModule,
     NotificationsModule,
     ProfileModule,
     RecipeModule,

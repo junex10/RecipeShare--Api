@@ -11,7 +11,6 @@ import { Person } from './person';
 import { Petition } from './petition';
 import { Process } from './process';
 import { Recipes } from './recipes';
-import { IngredientsRecipes } from './ingredients_recipe';
 
 export {
 	Level,
@@ -26,6 +25,5 @@ export {
 	Person,
 	Petition,
 	Process,
-	Recipes,
-	IngredientsRecipes
+	Recipes
 }
