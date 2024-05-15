@@ -27,7 +27,7 @@ export class HomeController {
 			});
         }
         catch(e) {
-            throw new UnprocessableEntityException('Could not get the eeceipies', e.message);
+            throw new UnprocessableEntityException('Could not get the Recipes', e.message);
         }
     }
 }
